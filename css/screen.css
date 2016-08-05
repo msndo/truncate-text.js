@@ -2,10 +2,14 @@
 
 html * { box-sizing: border-box; }
 body { font-size: 88%; }
+
+strong { font-weight: bold; }
+
 #header-title-page { padding: 20px; }
 #title-page { font-size: 300%; font-weight: bold; }
 #contents-outer {}
 
-.heading-section { margin: 20px 0 0; }
+.heading-section { margin: 20px 0 0; font-size: 134%; color: #666; font-weight: bold; }
 
+.text-lead { color: #66a; margin: 20px 0 0; font-size: 117%; }
 .text-description { margin: 20px 0 0; }

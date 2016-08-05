@@ -15,10 +15,15 @@ function truncateText(seriesElem, options) {
 	var _truncateText = function(elemTarg, settings) {
 		if(getComputedStyle(elemTarg)['overflow'] != 'hidden') { return; }
 
-		var text = elemTarg.innerHTML;
-		elemTarg.setAttribute('data-text-src', text);
+		if(! elemTarg.getAttribute('data-text-src')) {
+			elemTarg.setAttribute('data-text-src', elemTarg.innerHTML);
+		}
 
 		var multiline = settings.multiline;
+		if(!multiline) { return; }
+
+		elemTarg.innerHTML = elemTarg.getAttribute('data-text-src');
+		var text = elemTarg.innerHTML;
 
 		var elemTest = elemTarg.cloneNode(true);
 		elemTest.style.position = 'absolute';

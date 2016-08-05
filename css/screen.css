@@ -1,2 +1,11 @@
 @charset "utf-8";
 
+html * { box-sizing: border-box; }
+body { font-size: 88%; }
+#header-title-page { padding: 20px; }
+#title-page { font-size: 300%; font-weight: bold; }
+#contents-outer {}
+
+.heading-section { margin: 20px 0 0; }
+
+.text-description { margin: 20px 0 0; }

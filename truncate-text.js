@@ -8,7 +8,9 @@
 * @param {NodeList} [seriesElem] 必須
 * @param {object} [options] 省略可能
 */
+
 function truncateText(seriesElem, options) {
+
 	// =============================================== Sub Routines
 	var _truncateText = function(elemTarg, settings) {
 		if(getComputedStyle(elemTarg)['overflow'] != 'hidden') { return; }
@@ -23,12 +25,11 @@ function truncateText(seriesElem, options) {
 		elemTest.style.top = '-9999px';
 		elemTest.style.left = '-9999px';
 		elemTest.style.overflow = 'visible';
-		elemTest.style.width = multiline ? elemTarg.offsetWidth : 'auto';
-		elemTest.style.height = multiline ? 'auto' : elemTarg.offsetHeight;
+		elemTest.style.width = multiline ? elemTarg.offsetWidth + 'px' : 'auto';
+		elemTest.style.height = multiline ? 'auto' : elemTarg.offsetHeight + 'px';
 
 		elemTarg.insertAdjacentHTML('afterend', elemTest.outerHTML);
 		elemTest = elemTarg.nextElementSibling;
-
 
 		var _isOverflowed = function(elemTest, elemTarg, multiline) {
 			return multiline ?
@@ -36,6 +37,7 @@ function truncateText(seriesElem, options) {
 				elemTest.offsetWidth > elemTarg.offsetWidth
 			;
 		}
+
 		if(! _isOverflowed(elemTest, elemTarg, multiline)) { return; }
 
 		// 切り詰めメイン
@@ -62,7 +64,7 @@ function truncateText(seriesElem, options) {
 		elemTest.parentNode.removeChild(elemTest);
 	}
 
-	var extend = function(out) {
+	var _extend = function(out) {
 		out = out || {};
 	
 	 	for (var i = 1; i < arguments.length; i++) {
@@ -84,7 +86,7 @@ function truncateText(seriesElem, options) {
 			strEllipsis: "…",
 			multiline: true
 		};
-		settings = extend({}, settings, options);
+		settings = _extend({}, settings, options);
 
 		[].slice.call(seriesElem).forEach(function(elem) {
 			_truncateText(elem, settings);

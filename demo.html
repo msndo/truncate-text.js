@@ -4,17 +4,14 @@
 <meta charset="utf-8">
 <title>テキストを表示領域の「面積ベース」で断ち切る</title>
 <link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/screen.css">
 
 <script src="truncate-text.js"></script>
 
 <style>
-html * { box-sizing: border-box; }
-body { font-size: 88%; }
-#header-title-page { padding: 20px; }
-#title-page { font-size: 134%; }
-#contents-outer {}
-#contents-outer .show-example { padding: 20px; }
-#contents-outer .show-example .text-description p { border: 1px solid #ccc; border-radius: 3px; padding: 10px; width: 600px; height: 80px; overflow: hidden; }
+#contents-outer .show-example { padding: 20px;  }
+#contents-outer .show-example .text-description { width: 600px; }
+#contents-outer .show-example .text-description .content-text { display: block; width: 100%; height: 80px; border: 1px solid #ccc; border-radius: 3px; padding: 10px; overflow: hidden; }
 </style>
 </head>
 
@@ -27,14 +24,10 @@ body { font-size: 88%; }
 </header>
 
 <div id="contents-outer">
-<section class="show-example">
-<h2 class="heading-section">jQuery.truncate_text.js</h2>
 
-<pre>
-<code class="code-example">
-$('.text-description').truncateText({ strEllipsis: '...', multiline: true });
-</code>
-</pre>
+<div class="show-example">
+<section>
+<h2 class="heading-section">truncate-text.js</h2>
 
 <script>
 (function(window, document, undefined) {
@@ -46,10 +39,10 @@ $('.text-description').truncateText({ strEllipsis: '...', multiline: true });
 </script>
 
 <div class="text-description">
-<p>テキストを表示領域の「面積ベース」で断ち切るJavaScript関数です。セレクタで指定されたDOM内のテキストについて、領域から溢れる場合は最後に「…」を付与して断ち切り、溢れない場合はそのままのテキストを表示します。対象DOMはCSSでwidthとheightを指定のうえ、overflow: hiddenが指定されている必要があります。</p>
+<p class="content-text">テキストを表示領域の「面積ベース」で断ち切るJavaScript関数です。セレクタで指定されたDOM内のテキストについて、領域から溢れる場合は最後に「…」を付与して断ち切り、溢れない場合はそのままのテキストを表示します。対象DOMはCSSでwidthとheightを指定のうえ、overflow: hiddenが指定されている必要があります。</p>
 </div>
-
 </section>
+<!-- /show-example --></div>
 
 <!-- /contents-outer --></div>
 

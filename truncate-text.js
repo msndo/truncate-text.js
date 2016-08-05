@@ -16,7 +16,7 @@ function truncateText(seriesElem, options) {
 		if(getComputedStyle(elemTarg)['overflow'] != 'hidden') { return; }
 
 		if(! elemTarg.getAttribute('data-text-src')) {
-			elemTarg.setAttribute('data-text-src', elemTarg.innerHTML);
+			elemTarg.setAttribute('data-text-src', elemTarg.textContent);
 		}
 
 		var multiline = settings.multiline;
@@ -62,7 +62,9 @@ function truncateText(seriesElem, options) {
 			;
 		};
 
+
 		var truncatedText = _getTruncatedText(text, 0, text.length);
+
 		elemTest.innerHTML = truncatedText + settings.strEllipsis;
 
 		elemTarg.innerHTML = elemTest.innerHTML;

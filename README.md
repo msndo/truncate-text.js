@@ -5,6 +5,7 @@
 
 - 要素内テキスト量を描画ベースで面積分ちょうどに断ち切る。
 - テキスト最後に任意の断ち切り文字列(デフォルト '…')を追加。
+- 対象テキスト中のhtmlタグは除去されます
 
 ##起動書式
 truncateText(elemDom, options);
@@ -21,6 +22,9 @@ truncateTtext(elemDom, { strEllipsis: '...', multiline: true });
 	strEllipsis: "…",
 	multiline: true
 }
+
+##動かない？
+対象要素はCSSでwidthとheightを指定のうえ、overflow: hiddenが指定されている必要があります。width, heightの指定は直接指定以外、親要素からの継承でも有効です。
 
 ##ライセンス
 This software is released under the MIT License, see LICENSE.txt.

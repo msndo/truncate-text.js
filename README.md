@@ -1,5 +1,8 @@
 #truncate-text.js
 
+##デモ
+https://msndo.github.io/truncate-text.js/demo.html
+
 ##概要
 テキストを「溢れたテキスト…」のように断ち切るJavaScript関数。文字数ベースなどではなく。描画上の面積ベース
 

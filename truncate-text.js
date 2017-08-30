@@ -13,7 +13,13 @@ function truncateText(seriesElem, options) {
 
 	// =============================================== Sub Routines
 	var _truncateText = function(elemTarg, settings) {
-		if(getComputedStyle(elemTarg)['overflow'] != 'hidden') { return; }
+		if(getComputedStyle(elemTarg)['overflow'] != 'hidden') {
+			if(elemTarg.getAttribute('data-text-src')) {
+				elemTarg.innerHTML = elemTarg.getAttribute('data-text-src');
+			}
+
+			return;
+		}
 
 		if(! elemTarg.getAttribute('data-text-src')) {
 			elemTarg.setAttribute('data-text-src', elemTarg.textContent);

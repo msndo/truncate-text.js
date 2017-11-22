@@ -25,9 +25,6 @@ function truncateText(seriesElem, options) {
 			elemTarg.setAttribute('data-text-src', elemTarg.textContent);
 		}
 
-		var multiline = settings.multiline;
-		if(!multiline) { return; }
-
 		elemTarg.innerHTML = elemTarg.getAttribute('data-text-src');
 		var text = elemTarg.innerHTML;
 
@@ -36,20 +33,19 @@ function truncateText(seriesElem, options) {
 		elemTest.style.top = '-9999px';
 		elemTest.style.left = '-9999px';
 		elemTest.style.overflow = 'visible';
-		elemTest.style.width = multiline ? elemTarg.offsetWidth + 'px' : 'auto';
-		elemTest.style.height = multiline ? 'auto' : elemTarg.offsetHeight + 'px';
+		elemTest.style.width = elemTarg.offsetWidth + 'px';
+		elemTest.style.height = 'auto';
 
 		elemTarg.insertAdjacentHTML('afterend', elemTest.outerHTML);
 		elemTest = elemTarg.nextElementSibling;
 
-		var _isOverflowed = function(elemTest, elemTarg, multiline) {
-			return multiline ?
-				elemTest.offsetHeight > elemTarg.offsetHeight :
-				elemTest.offsetWidth > elemTarg.offsetWidth
-			;
+		var _isOverflowed = function(elemTest, elemTarg) {
+			return(
+				elemTest.offsetHeight > elemTarg.offsetHeight
+			);
 		}
 
-		if(! _isOverflowed(elemTest, elemTarg, multiline)) { return; }
+		if(! _isOverflowed(elemTest, elemTarg)) { return; }
 
 		// 切り詰めメイン
 		var _getTruncatedText = function(textSrc, lower, upper) {
@@ -62,12 +58,11 @@ function truncateText(seriesElem, options) {
 
 			elemTest.innerHTML = textTrunc + settings.strEllipsis;
 
-			return _isOverflowed(elemTest, elemTarg, multiline) ?
+			return _isOverflowed(elemTest, elemTarg) ?
 				_getTruncatedText(textTrunc, lower, mid) :
 				_getTruncatedText(textSrc, mid, upper)
 			;
 		};
-
 
 		var truncatedText = _getTruncatedText(text, 0, text.length);
 
@@ -96,8 +91,7 @@ function truncateText(seriesElem, options) {
 	// =============================================== Main
 	(function(window, document, undefined) {
 		var settings = {
-			strEllipsis: "…",
-			multiline: true
+			strEllipsis: "…"
 		};
 		settings = _extend({}, settings, options);
 

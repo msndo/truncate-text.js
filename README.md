@@ -13,28 +13,27 @@ https://msndo.github.io/truncate-text.js/demo.html
 ## 起動書式
 
 ```
-truncateText(elemDom, options);
+truncateText(seriesElem, options);
 ```
 
 ## 使用例:
 ### デフォルト設定で起動
 
 ```
-truncateTtext(elemDom, settings);
+truncateTtext(seriesElem);
 ```
 
 ### 設定をオーバーライドして起動
 
 ```
-truncateTtext(elemDom, { strEllipsis: '...', multiline: true });
+truncateTtext(seriesElem, { strEllipsis: '……' }); // 3点リーダー2連
 ```
 
 ## デフォルト設定
 
 ```
 {
-	strEllipsis: "…",
-	multiline: true
+	strEllipsis: "…"
 }
 ```
 

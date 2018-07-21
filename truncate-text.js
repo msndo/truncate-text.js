@@ -49,10 +49,10 @@ function truncateText(seriesElem, options) {
 
 		// 切り詰めメイン
 		var _getTruncatedText = function(textSrc, lower, upper) {
- 			var mid = Math.floor(lower + (upper - lower)/2);
-  				var textTrunc = textSrc.substr(0, mid);
+			var mid = Math.floor(lower + (upper - lower)/2);
+				var textTrunc = textSrc.substr(0, mid);
 
- 			if ((upper <= (lower + 1)) && (lower == mid)) {
+			if ((upper <= (lower + 1)) && (lower == mid)) {
 				return textTrunc;
 			}
 
@@ -74,17 +74,17 @@ function truncateText(seriesElem, options) {
 
 	var _extend = function(out) {
 		out = out || {};
-	
-	 	for (var i = 1; i < arguments.length; i++) {
+
+		for (var i = 1; i < arguments.length; i++) {
 			if (!arguments[i])
 			continue;
-	
+
 			for (var key in arguments[i]) {
 			if (arguments[i].hasOwnProperty(key))
 				out[key] = arguments[i][key];
 			}
 		}
-	
+
 		return out;
 	};
 

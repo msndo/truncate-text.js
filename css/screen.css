@@ -12,4 +12,4 @@ strong { font-weight: bold; }
 .heading-section { margin: 20px 0 0; font-size: 134%; color: #666; font-weight: bold; }
 
 .text-lead { color: #66a; margin: 20px 0 0; font-size: 117%; }
-.text-description { margin: 20px 0 0; }
+.text-description { margin: 20px 0 0; word-break: break-all; word-wrap: normal; }
